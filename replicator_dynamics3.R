@@ -45,11 +45,12 @@ replicator_dynamics_xy<-function(y,x,M,beta1,beta2,d,N,c,l){
   y. <- y*(Pd-R_)
   x. <- x*(Pl-R_)
   
-  result<-data.frame(y=y,x=x,M=M,beta1=beta1,beta2=beta2,d=d,N=N,c=c,l=l,y.=y.,x.=x.)
-  return(result)
+  result1<-data.frame(y=y,x=x,M=M,beta1=beta1,beta2=beta2,d=d,N=N,c=c,l=l,y.=y.,x.=x.)
+  return(result1)
 }
 
 
+#1.
 get_data_by_yx<-function(i){
   
   y<-parameters$y[i]
@@ -60,7 +61,24 @@ get_data_by_yx<-function(i){
 }
 
 
-
+#2.
+get_data_by_parameters1<-function(i){
+  
+  y<-parameters1$y[i]
+  x<-parameters1$x[i]
+  M<-parameters1$M[i]
+  beta1<-parameters1$beta1[i]
+  beta2<-parameters1$beta2[i]
+  d<-parameters1$d[i]
+  c<-parameters1$c[i]
+  l<-parameters1$l[i]
+  
+  temp<-replicator_dynamics_xy(y,x,M,beta1,beta2,d,N,c,l)
+  
+  gc()
+  
+  data<-cbind(i,temp)
+}
 
 
 
