@@ -5,6 +5,7 @@ library(ggthemes)
 library(latex2exp)
 library(ggtext)
 library(progress)
+library(plotly)
 
 setwd("/home/zuo_r/involution")
 
@@ -276,23 +277,23 @@ ggplot(data3,aes(x=y,y=x))+
 #----------------------------#
 #--------4.beta2的影响-------#
 #----------------------------#
-#用多线程试试
-data<-data.frame()
-pb <- progress_bar$new(format = "  完成百分比 [:bar] :percent 执行时间 :elapsed:elapsedfull",total = 46, clear = FALSE, width= 60)
-
-for(M in seq(50,500,10)){
-  pb$tick()
-  for(beta2 in 3:7){
-    for(y in seq(0,1,0.01)){
-      for(x in seq(0,1-y,0.01)){
-        temp<-duplicate_dynamic_xy(y,x,M=M,beta1=8,beta2=beta2,d=4,N=50,c=1,l=0.5)
-        data<-rbind(data,temp)
-      }
-    }
-  }
-}
-
-fwrite(data,"data_beta1=8_beta2=3-4-5-6-7.csv",row.names = F)
+# #用多线程试试
+# data<-data.frame()
+# pb <- progress_bar$new(format = "  完成百分比 [:bar] :percent 执行时间 :elapsed:elapsedfull",total = 46, clear = FALSE, width= 60)
+# 
+# for(M in seq(50,500,10)){
+#   pb$tick()
+#   for(beta2 in 3:7){
+#     for(y in seq(0,1,0.01)){
+#       for(x in seq(0,1-y,0.01)){
+#         temp<-duplicate_dynamic_xy(y,x,M=M,beta1=8,beta2=beta2,d=4,N=50,c=1,l=0.5)
+#         data<-rbind(data,temp)
+#       }
+#     }
+#   }
+# }
+# 
+# fwrite(data,"data_beta1=8_beta2=3-4-5-6-7.csv",row.names = F)
 
 
 

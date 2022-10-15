@@ -10,12 +10,12 @@ replicator_dynamics_xy<-function(y,x,M,beta1,beta2,d,N,c,l){
   # #M资源 c(5,15,25)
   # M<-5
   
-  # y 整体内卷比例
-  # x 整体躺平比例
+  # y 整体内卷的比例
+  # x 整体躺平的比例
   
   # #内卷相对躺平的效用
   # beta1<-4
-  # #合作相对躺平的效用
+  # #挣扎相对躺平的效用
   # beta2<-2
   
   # #more effort的成本
@@ -44,8 +44,9 @@ replicator_dynamics_xy<-function(y,x,M,beta1,beta2,d,N,c,l){
   R_ <- y*Pd+x*Pl+(1-x-y)*Pc  ##均值
   y. <- y*(Pd-R_)
   x. <- x*(Pl-R_)
+  s.<-(1-x-y)*(Pc-R_)
   
-  result1<-data.frame(y=y,x=x,M=M,beta1=beta1,beta2=beta2,d=d,N=N,c=c,l=l,y.=y.,x.=x.)
+  result1<-data.frame(y=y,x=x,M=M,beta1=beta1,beta2=beta2,d=d,N=N,c=c,l=l,y.=y.,x.=x.,s.=s.,R_=R_)#<---补充***
   return(result1)
 }
 
