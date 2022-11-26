@@ -1,3 +1,4 @@
 # replicator-dynamics
 
-Replicator dynamics for involution in an inﬁnite well-mixed population复现与优化
+codeA1文件夹是整理后的，主要参考这个即可
+
